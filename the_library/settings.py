@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-xw$j8m7mys5&ub+4_s6f3p!2490vqa1nxvhrm4-9()xxk)=e-9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','gitlab.com/MKBenjie/my-lib.git']
+ALLOWED_HOSTS = ['127.0.0.1:8000','my-lib-benjie.herokuapp.com/']
 
 
 # Application definition
