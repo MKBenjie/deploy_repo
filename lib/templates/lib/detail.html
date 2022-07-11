@@ -1,0 +1,23 @@
+{% extends 'lib/base.html' %}
+    {% block title %}
+        Details
+    {% endblock %}
+    {% block content %}
+    <br>
+    <div class="cis">
+        <div>
+        <h3>{{book.title}}</h3>
+        <img src = "{{ book.cover.url }}" width="250px;">  
+        </div>    
+        <div>
+        <p><b>BOOK ID</b>: {{book.book_id}}</p>
+        <p><b>AUTHOR</b>: {{book.author}}</p>
+        <p><b>YEAR PUBLISHED</b>: {{book.year}}</p>
+        <p><b>EDITION</b>: {{book.book_edition}}</p>
+        <p><b>ABOUT</b>:<br>{{book.description}}</p>
+        <p><b>Status</b>:</p>
+        <button type="botton" onclick="alert('This book is {{book.status}}')">{{book.status}}</button>
+        </div>
+    </div>
+    <br>
+    {% endblock %}
