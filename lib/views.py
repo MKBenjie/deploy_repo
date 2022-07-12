@@ -48,3 +48,4 @@ class BookSearchView(generic.ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         return Book.objects.filter(title__icontains = query)
+
