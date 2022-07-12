@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-xw$j8m7mys5&ub+4_s6f3p!2490vqa1nxvhrm4-9()xxk)=e-9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000','my-lib-benjie.herokuapp.com/']
+ALLOWED_HOSTS = ['my-lib-benjie.heroku.com']
 
 
 # Application definition
@@ -79,13 +79,22 @@ WSGI_APPLICATION = 'the_library.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ddfcf8rouihrm2',
+        'USER': 'bxvwdsyqyiycqv',
+        'PASSWORD': '4a7ae22ed38cf0bdafd872fc18bc88fb2e04a92550f44bd5ff764c4ff0988f3f',
+        'HOST': 'ec2-3-223-169-166.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -121,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-# STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
