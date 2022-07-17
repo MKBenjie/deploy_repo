@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'the_library.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ddfcf8rouihrm2',
-        'USER': 'bxvwdsyqyiycqv',
-        'PASSWORD': '4a7ae22ed38cf0bdafd872fc18bc88fb2e04a92550f44bd5ff764c4ff0988f3f',
-        'HOST': 'ec2-3-223-169-166.compute-1.amazonaws.com',
+        'NAME': 'd7b73j0oq9ievc',
+        'USER': 'gtiarciadhrtzw',
+        'PASSWORD': '25139bdc1fafb9c69c1a6747fc81d482b3162b489416edde544fa5a9911f54d8',
+        'HOST': 'ec2-54-161-255-125.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
