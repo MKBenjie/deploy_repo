@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-xw$j8m7mys5&ub+4_s6f3p!2490vqa1nxvhrm4-9()xxk)=e-9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['my-lib-benjie.heroku.com']
+ALLOWED_HOSTS = ['127.0.0.1','my-lib-benjie.heroku.com']
 
 
 # Application definition
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'the_library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

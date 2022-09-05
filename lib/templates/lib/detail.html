@@ -9,7 +9,7 @@
         <h3>{{book.title}}</h3>
         <img src = "{{ book.cover.url }}" width="250px;">  
         </div>    
-        <div>
+        <div class="details col-6">
         <p><b>BOOK ID</b>: {{book.book_id}}</p>
         <p><b>AUTHOR</b>: {{book.author}}</p>
         <p><b>YEAR PUBLISHED</b>: {{book.year}}</p>
@@ -19,5 +19,19 @@
         <button type="botton" onclick="alert('This book is {{book.status}}')">{{book.status}}</button>
         </div>
     </div>
-    <br>
-    {% endblock %}
+        <div>
+
+            {% if book.copies_available %}
+            <br>
+                <p>No of avialable copies={{ book.copies_available }}</p>
+            <br>
+                <a class="btn btn-primary" href="{% url 'lib:request_issue' book.id %}">Borrow</a>
+            
+            {% else %}
+            <br>
+                <p>No of avialable copies={{ book.copies_available }}</p>
+            <br>
+                <button class="btn btn-secondary" type="botton" onclick="alert('This book isnot available currently')">Borrow</button>
+            {% endif %}     
+        </div>
+{% endblock %}

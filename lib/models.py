@@ -1,20 +1,21 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+from django.conf import settings
+
 
 
 # Create your models here.
-
-class User(AbstractUser):
-    is_librarian = models.BooleanField(default=False)
-    is_student = models.BooleanField(default=False)
-
-    class Meta:
-        swappable = 'AUTH_USER_MODEL'
-
 class Student(models.Model):
-    pass
+    user = models.OneToOneField(to = settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null = True)
+    reg_number = models.CharField(max_length=20, null=True, unique=True)
+    course = models.CharField(max_length=30, null=True)
+    college = models.CharField(max_length=80, null=True)
+    total_books_due=models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.user.first_name + " " + self.user.last_name
+        # return self.reg_number or " "
 
 status = (
     ('Available', 'Available'),
@@ -30,6 +31,9 @@ class Book(models.Model):
     book_id = models.CharField(max_length=100)
     cover = models.ImageField(upload_to='lib/covers/', null= False)
     status = models.CharField(default='Available', choices = status, max_length=20)
+    copies_available = models.IntegerField(blank=True, default=0)
+    total_copies = models.IntegerField(blank=True, default=0)
+
     def __str__(self):
         return self.title
 
@@ -39,6 +43,13 @@ class Book(models.Model):
 
 
 class Borrowed(models.Model):
-    pass
+    student = models.ForeignKey('Student', on_delete=models.CASCADE, null=True)
+    book = models.ForeignKey('Book', on_delete=models.CASCADE, null=True)
+    issue_date = models.DateTimeField(null=True,blank=True)
+    return_date = models.DateTimeField(null=True,blank=True)
+    
+    def __str__(self):
+        return self.student.user.first_name + " borrowed " +self.book.title or''
+
 
     

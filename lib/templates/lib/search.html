@@ -14,8 +14,6 @@
             <th>COVER PHOTO</th>
             <th>TITLE</th>
             <th>AUTHOR</th>
-            <th>YEAR</th>
-            <th>PUBLISHER</th>
             <th>STATUS</th>
         </tr>
         </thead>
@@ -25,8 +23,6 @@
             <td><img src = "{{ title.cover.url }}" width="70px;"></td>
             <td><a href = "{% url 'lib:detail' title.id %}">{{ title.title }}</a></td>
             <td>{{ title.author }}</td>
-            <td>{{ title.year }}</td>
-            <td>{{ title.publisher }}</td>
             <td>{{ title.status }}</td>
         </tr>
         <!-- <br> -->

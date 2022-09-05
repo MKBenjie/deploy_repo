@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from .models import *
 
 
 # Sign Up Form
@@ -36,3 +37,8 @@ class LogInForm(UserCreationForm):
             'username',
             'password'
         ]
+
+class BorrowForm(forms.ModelForm):
+    class Meta:
+        model = Borrowed
+        fields = ['issue_date', 'return_date']
