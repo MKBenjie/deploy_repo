@@ -18,7 +18,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{% url 'logout'%}">Logout</a>
-            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="{% url 'lib:profile' user.id%}">Profile</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" action="{% url 'lib:search_book' %}" method="get">

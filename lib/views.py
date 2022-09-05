@@ -7,7 +7,7 @@ from .models import Book, Borrowed, Student
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from .forms import LogInForm, SignUpForm
+from .forms import LogInForm, ProfileForm, SignUpForm
 from django.contrib.auth.views import LoginView
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
@@ -62,9 +62,9 @@ class BookSearchView(generic.ListView):
 #     return render(request, 'lib/borrow_book.html')
 @login_required
 def student_request_issue(request, pk):
-    obj = Book.objects.get(id=pk)
-    stu=Student.objects.get(user = pk)
-    s = get_object_or_404(Student, user = pk)
+    obj = Book.objects.get(id = pk)
+    stu=Student.objects.get(user = request.user)
+    s = get_object_or_404(Student, user = request.user)
     # current = Book.objects.get(status)
     if s.total_books_due < 3:
         message = "Book has been isuued, You can collect book from library"
@@ -78,14 +78,15 @@ def student_request_issue(request, pk):
         stu.total_books_due = stu.total_books_due+1
         stu.save()
         a.save()
-        if obj.copies_available <= 0:
-            st = Book(status = 'Borrowed')
-            st.save()
-        else:
-            st = Book(status = 'Available')
-            st.save()
+        
 
 
     else:
         message = "You have exceeded your limit."
     return render(request, 'lib/borrow_book.html', locals())
+
+class ProfileView(generic.UpdateView):
+    model = Student
+    form_class = ProfileForm
+    success_url = reverse_lazy('home')
+    template_name = 'registration/profile.html'

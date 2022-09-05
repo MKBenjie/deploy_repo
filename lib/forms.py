@@ -42,3 +42,14 @@ class BorrowForm(forms.ModelForm):
     class Meta:
         model = Borrowed
         fields = ['issue_date', 'return_date']
+
+class ProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'first_name', 
+            'last_name', 
+            'email',
+            ]

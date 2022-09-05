@@ -25,7 +25,9 @@
                 {{field}}
                 <br>
             {% endfor %}
-            {{form.errors}}
+
+            <i>{{form.errors}}</i>
+            
             <p>Don't have an account |<a href="{% url 'lib:signup' %}">SignUp Here</a></p>
             <button type="submit" class="btn btn-outline-primary">Login</button>
         </form>

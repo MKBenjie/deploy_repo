@@ -35,7 +35,7 @@ class Book(models.Model):
     total_copies = models.IntegerField(blank=True, default=0)
 
     def __str__(self):
-        return self.title
+        return self.title or ' '
 
     def delete(self, *args, **kwargs):
         self.cover.delete()
@@ -43,8 +43,8 @@ class Book(models.Model):
 
 
 class Borrowed(models.Model):
-    student = models.ForeignKey('Student', on_delete=models.CASCADE, null=True)
-    book = models.ForeignKey('Book', on_delete=models.CASCADE, null=True)
+    student = models.ForeignKey('Student', on_delete=models.SET_NULL, null=True)
+    book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True)
     issue_date = models.DateTimeField(null=True,blank=True)
     return_date = models.DateTimeField(null=True,blank=True)
     

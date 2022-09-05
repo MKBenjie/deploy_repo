@@ -11,5 +11,5 @@ urlpatterns =[
     path('search_book/', views.BookSearchView.as_view(), name= 'search_book'),
     # path('borrow/', views.borrow, name='borrow_book'),
     path('<int:pk>/request_issue/', views.student_request_issue, name='request_issue'),
-
+    path('profile/<int:pk>/', views.ProfileView.as_view(), name='profile'),
 ]
