@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-xw$j8m7mys5&ub+4_s6f3p!2490vqa1nxvhrm4-9()xxk)=e-9
 DEBUG = True
 
 
-CSRF_TRUSTED_ORIGINS = ('https://web-production-ef797.up.railway.app'),
+CSRF_TRUSTED_ORIGINS = ('https://web-production-ef797.up.railway.app/', 'http://web-production-ef797.up.railway.app/')
 ALLOWED_HOSTS = [
     '*',
     ],
