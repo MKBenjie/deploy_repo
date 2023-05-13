@@ -32,8 +32,8 @@ DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = [
     '*'
-]
-ALLOWED_HOSTS = ['*']
+],
+ALLOWED_HOSTS = ['*'],
 CORS_ORIGIN_WHITELIST = [
     '*',
 ]
