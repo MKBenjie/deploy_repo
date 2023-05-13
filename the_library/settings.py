@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
-import django_heroku
-import dj_database_url
-from decouple import config
+# import django_heroku
+# import dj_database_url
+# from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xw$j8m7mys5&ub+4_s6f3p!2490vqa1nxvhrm4-9()xxk)=e-9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','my-lib-benjie.heroku.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,22 +79,22 @@ WSGI_APPLICATION = 'the_library.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd7b73j0oq9ievc',
-        'USER': 'gtiarciadhrtzw',
-        'PASSWORD': '25139bdc1fafb9c69c1a6747fc81d482b3162b489416edde544fa5a9911f54d8',
-        'HOST': 'ec2-54-161-255-125.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd7b73j0oq9ievc',
+#         'USER': 'gtiarciadhrtzw',
+#         'PASSWORD': '25139bdc1fafb9c69c1a6747fc81d482b3162b489416edde544fa5a9911f54d8',
+#         'HOST': 'ec2-54-161-255-125.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -137,7 +137,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -153,4 +153,4 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = 'login'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
