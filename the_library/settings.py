@@ -31,7 +31,7 @@ DEBUG = True
 
 
 CSRF_TRUSTED_ORIGINS = ('https://web-production-ef797.up.railway.app', 'http://web-production-ef797.up.railway.app')
-ALLOWED_HOSTS = ['web-production-ef797.up.railway.app', '127.0.0.1',]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
